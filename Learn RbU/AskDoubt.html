@@ -1,0 +1,48 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ask Doubts</title>
+	<link rel="stylesheet"  href="Style1.css">
+</head>
+<body>
+	<div class="container">
+		<form onsubmit="sendEmail() reset(); return false; ">
+			<h3>Ask Doubts</h3>
+			<input type="text" id="name" placeholder="Your Name" required>
+			<input type="email" id="email" placeholder="Email Id" required>
+			<input type="text" id="Phone" placeholder="Phone No." required>
+			<input type="subject" id="subject" placeholder="Enter Subject" required> 
+			<textarea id="message" rows="4" placeholder="Ask Your Doubts"></textarea>
+			<button type="Submit">Send</button>
+		</form>
+	</div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+function sendEmail()
+{
+	Email.send({
+    Host : "smtp.gmail.com",
+    Username : "learnrbu@gmail.com  ",
+    Password : "learnrbu123",
+    To : 'nishant.k28101@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New contact form Enquery",
+    Body : "Name: "+ document.getElementById("name").value
+    +"<br> Email: "+document.getElementById("email").value
+     +"<br> Phone no.: "+document.getElementById("phone").value
+      +"<br> Subject: "+document.getElementById("subject").value
+      +"<br> Message: "+document.getElementById("message").value
+}).then(
+  message => alert("Message send Successfully")
+);
+}
+</script>
+
+
+</body>
+</body>
+</body>
+</html>
